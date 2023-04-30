@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUP-Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1><span>RESULT</span></h1>
+    <button><a href="{{ url_for('input') }}">Go Back</a></button>
+    <div class="result">
+        <h2>L matrix:</h2>
+        <table class="matrix">
+            {% for row in l %}
+                <tr>
+                    {% for value in row %}
+                        <td>{{ "{0:.3f}".format(value) }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="result">
+        <h2>U matrix:</h2>
+        <table class="matrix">
+            {% for row in u %}
+                <tr>
+                    {% for value in row %}
+                    <td>{{ "{0:.3f}".format(value) }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="result">
+        <h2>P matrix (Permutation):</h2>
+        <table class="matrix">
+            {% for row in p %}
+                <tr>
+                    {% for value in row %}
+                    <td>{{ "{0:.3f}".format(value) }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="result">
+        <h2>X matrix (Solution):</h2>
+        <table class="matrix">
+            {% for row in x.reshape(1,-1) %}
+                <tr>
+                    {% for value in row %}
+                        <td>{{ "{0:.3f}".format(value) }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+    <br><br><br><br>
+</body>
+</html>
+
